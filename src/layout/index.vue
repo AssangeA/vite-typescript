@@ -43,6 +43,9 @@ export default {
         tag,
         fullScreen,
         exitScreen,
+    },
+    setup(){
+      
     }
 };
 </script>
