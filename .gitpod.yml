@@ -1,8 +1,8 @@
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-  - init: npm install && npm run serve # runs during prebuild
+  - init: npm install & npm run dev # runs during prebuild
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
-  - port: 9527
+  - port: 9000
     onOpen: open-preview
