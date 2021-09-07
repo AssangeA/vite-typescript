@@ -33,6 +33,15 @@ import {Navbar,Sidebar,AppMain,setting,tag} from './components'
 import {ref,unref,reactive,computed,toRefs,watchEffect,onMounted,onBeforeMount,useCssModule} from 'vue'
 import fullScreen from "/@/assets/svg/full_screen.svg";
 import exitScreen from "/@/assets/svg/exit_screen.svg";
+import options from "/@/settings";
+import { useAppStoreHook } from "/@/store/modules/app";
+
+interface setInter{
+  sidebar:any,
+  device:string,
+  fixedHeader:boolean,
+  classes:any,
+}
 export default {
     name:'layout',
     components:{
@@ -45,7 +54,17 @@ export default {
         exitScreen,
     },
     setup(){
-      
+       const pureApp = useAppStoreHook();
+      let containerHiddenSideBar= ref(options.hiddenSideBar)
+
+      const set:setInter=reactive({
+          sidebar:computed(()=>{
+            return pureApp.sidebar;
+          })
+      })
+      return {
+        containerHiddenSideBar
+      }
     }
 };
 </script>
